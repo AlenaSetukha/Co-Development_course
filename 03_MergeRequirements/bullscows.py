@@ -5,6 +5,12 @@ from urllib.request import urlopen
 from cowsay import cowsay, get_random_cow
 
 
+#Функция "моей коровы"
+def my_cow_say(message: str) -> None:
+    print('***____________________________***')
+    print("  " + message)
+    print("\________________________________/")
+    return
 
 #Предполагается, что слова одинаковой длины
 def bullscows(guess: str, secret: str) -> tuple[int, int]:
@@ -16,13 +22,11 @@ def bullscows(guess: str, secret: str) -> tuple[int, int]:
 #Функция, спрашивающая слово у игрока
 def ask(prompt: str, valid: list[str] = None) -> str:
     if valid == None:
-        cow_tmp = get_random_cow()
-        print(cowsay(prompt, cow_tmp))
+        my_cow_say(prompt)
         guess_word = input()
         return guess_word
     else:
-        cow_tmp = get_random_cow()
-        print(cowsay('Введите слово только из Вашего списка:', cow_tmp))
+        my_cow_say('Введите слово из Вашего списка:')
         guess_word = input()
         if guess_word in valid:
             return guess_word
