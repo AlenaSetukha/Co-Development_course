@@ -2,6 +2,7 @@ import sys
 import random
 import urllib
 from urllib.request import urlopen
+from cowsay import cowsay, get_random_cow
 
 
 
@@ -15,11 +16,13 @@ def bullscows(guess: str, secret: str) -> tuple[int, int]:
 #Функция, спрашивающая слово у игрока
 def ask(prompt: str, valid: list[str] = None) -> str:
     if valid == None:
-        print(prompt)
+        cow_tmp = get_random_cow()
+        print(cowsay(prompt, cow_tmp))
         guess_word = input()
         return guess_word
     else:
-        print('Введите слово только из Вашего списка:')
+        cow_tmp = get_random_cow()
+        print(cowsay('Введите слово только из Вашего списка:', cow_tmp))
         guess_word = input()
         if guess_word in valid:
             return guess_word
@@ -31,7 +34,8 @@ def ask(prompt: str, valid: list[str] = None) -> str:
 
 #Функция вывода результата предположения игрока
 def inform(format_string: str, bulls: int, cows: int) -> None:
-    print(format_string.format(bulls, cows))
+    cow_tmp = get_random_cow()
+    print(cowsay(format_string.format(bulls, cows), cow_tmp))
     return
 
 
@@ -85,8 +89,6 @@ def main():
     attempts = gameplay(ask, inform, dict)
     print(attempts)
     return
-
-
 
 
 
