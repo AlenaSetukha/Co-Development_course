@@ -1,0 +1,8 @@
+# ignore  python environment
+Co-Development_venv/
+
+# ignore all logs
+*.log
+
+# ignore pycache
+*.pyc
