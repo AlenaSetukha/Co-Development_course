@@ -1,6 +1,9 @@
 # ignore  python environment
 Co-Development_venv/
 
+# ignore  python environment
+04_MergetoolCommandline/04_MergetoolCommandline_venv
+
 # ignore all logs
 *.log
 
